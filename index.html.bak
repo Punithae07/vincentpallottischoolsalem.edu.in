@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AcademicPrestige | Modern Excellence in Education</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "primary-container": "#063b56",
+                        "on-primary-fixed-variant": "#1e4b66",
+                        "error": "#ba1a1a",
+                        "primary": "#002538",
+                        "on-secondary-container": "#00751f",
+                        "surface": "#f9f9ff",
+                        "background": "#f9f9ff",
+                        "surface-variant": "#d8e3fb",
+                        "tertiary-container": "#003966",
+                        "surface-tint": "#38637f",
+                        "on-surface-variant": "#41474d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d2e4ff",
+                        "surface-dim": "#cfdaf2",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary": "#002342",
+                        "on-tertiary-fixed-variant": "#004880",
+                        "inverse-surface": "#263143",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#7ca5c5",
+                        "on-tertiary-fixed": "#001c37",
+                        "on-tertiary-container": "#67a4ec",
+                        "secondary-container": "#71ff79",
+                        "secondary": "#006e1d",
+                        "secondary-fixed-dim": "#53e160",
+                        "on-secondary-fixed": "#002204",
+                        "on-primary-fixed": "#001e2f",
+                        "surface-container": "#e7eeff",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#c9e6ff",
+                        "outline": "#72787e",
+                        "primary-fixed-dim": "#a1cced",
+                        "on-background": "#111c2d",
+                        "on-secondary-fixed-variant": "#005314",
+                        "inverse-primary": "#a1cced",
+                        "tertiary-fixed-dim": "#a1c9ff",
+                        "surface-container-high": "#dee8ff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c7ce",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary-fixed": "#71ff79",
+                        "on-surface": "#111c2d",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "80px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["36px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-sm": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "h1": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h3": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .blob-bg {
+            position: absolute;
+            z-index: -1;
+            filter: blur(80px);
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .notice-card {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .circular-mask {
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        .footer-curve {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: translateY(-99%);
+        }
+
+        .footer-curve svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .footer-curve .shape-fill {
+            fill: #002538;
+        }
+
+        @keyframes gradient-bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animate-gradient {
+            background: linear-gradient(-45deg, #002538, #063B56, #004880, #002538);
+            background-size: 400% 400%;
+            animation: gradient-bg 15s ease infinite;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-w-max;
+            background: white;
+            border-radius: 8px;
+            shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            margin-top: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .dropdown-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #002538;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f5f5f5;
+            color: #006e1d;
+            border-left-color: #006e1d;
+            padding-left: 25px;
+        }
+
+        /* Mobile Menu Modal */
+        .mobile-menu-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 200;
+        }
+
+        .mobile-menu-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .mobile-menu-content {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 30px 24px;
+            margin: auto;
+            max-height: 90vh;
+            overflow-y-auto;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu-modal.active .mobile-menu-content {
+            transform: scale(1);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .mobile-menu-header img {
+            height: 50px;
+            width: auto;
+        }
+
+        .close-mobile-menu {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #002538;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 24px;
+        }
+
+        .mobile-menu-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #006e1d;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu-links li a {
+            display: block;
+            padding: 10px 12px;
+            color: #111c2d;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu-links li a:hover {
+            background: #f0f0f0;
+            color: #006e1d;
+            padding-left: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .contact-item .material-symbols-outlined {
+            color: #006e1d;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-text {
+            font-size: 13px;
+            color: #41474d;
+            line-height: 1.5;
+        }
+
+        .admission-btn-mobile {
+            width: 100%;
+            background: #006e1d;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+
+        .admission-btn-mobile:hover {
+            background: #005314;
+            box-shadow: 0 4px 12px rgba(0, 110, 29, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface overflow-x-hidden">
+    <header class="fixed top-0 w-full z-50 bg-[#063B56]">
+        <div class="flex justify-between items-center w-full px-4 lg:px-8 py-3 max-w-[1440px] mx-auto">
+            <!-- Logo on the left -->
+            <div class="flex items-center space-x-3">
+                <img src="assets/logo.png" alt="">
+            </div>
+            <!-- White Pill Container for Navigation -->
+            <div
+                class="hidden xl:flex bg-white rounded-l-full py-3 px-10 items-center space-x-6 shadow-xl relative -mr-8">
+                <nav
+                    class="flex items-center space-x-6 font-['Plus_Jakarta_Sans'] font-bold text-[10px] tracking-wider uppercase text-black">
+                    <a class="hover:text-[#063B56] transition-colors" href="#">Home</a>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>About Us</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">School History</a>
+                            <a href="#">Vision & Mission</a>
+                            <a href="#">Leadership Team</a>
+                            <a href="#">Awards & Recognition</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Management</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Principal</a>
+                            <a href="#">Correspondent</a>
+                            <a href="#">Administrative Staff</a>
+                            <a href="#">Governance</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Academics</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Curriculum</a>
+                            <a href="#">Faculty</a>
+                            <a href="#">Student Results</a>
+                            <a href="#">Study Materials</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Beyond Academics</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Sports</a>
+                            <a href="#">Cultural Activities</a>
+                            <a href="#">Science & Tech Club</a>
+                            <a href="#">Clubs & Societies</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Admission</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Apply Now</a>
+                            <a href="#">Admission Criteria</a>
+                            <a href="#">Fee Structure</a>
+                            <a href="#">Scholarship</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Campus</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Infrastructure</a>
+                            <a href="#">Labs & Facilities</a>
+                            <a href="#">Library</a>
+                            <a href="#">Sports Complex</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Community</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Events</a>
+                            <a href="#">Alumni Network</a>
+                            <a href="#">Parent Portal</a>
+                            <a href="#">Community Service</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item relative">
+                        <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
+                            <span>Gallery</span>
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </div>
+                        <div class="dropdown-menu shadow-lg">
+                            <a href="#">Photo Gallery</a>
+                            <a href="#">Video Gallery</a>
+                            <a href="#">Events Gallery</a>
+                            <a href="#">Virtual Tour</a>
+                        </div>
+                    </div>
+                    <a class="hover:text-[#063B56] transition-colors" href="#">Contact Us</a>
+                </nav>
+                <div class="pl-4 border-l border-gray-200">
+                    <span class="material-symbols-outlined text-black font-bold cursor-pointer">menu</span>
+                </div>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <div class="xl:hidden">
+                <span class="material-symbols-outlined text-white text-3xl cursor-pointer" id="mobile-menu-trigger">menu</span>
+            </div>
+        </div>
+    </header>
+    <!-- Mobile Menu Modal -->
+    <div class="mobile-menu-modal" id="mobile-menu-modal">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <img src="assets/logo.png" alt="School Logo">
+                <button class="close-mobile-menu" id="close-mobile-menu">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="mobile-menu-section">
+                <span class="mobile-menu-title">Navigation</span>
+                <ul class="mobile-menu-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Management</a></li>
+                    <li><a href="#">Academics</a></li>
+                    <li><a href="#">Beyond Academics</a></li>
+                    <li><a href="#">Admission</a></li>
+                    <li><a href="#">Campus</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Details Section -->
+            <div class="mobile-menu-section">
+                <span class="mobile-menu-title">Contact Us</span>
+                
+                <div class="contact-item">
+                    <span class="material-symbols-outlined text-lg">location_on</span>
+                    <div class="contact-text">
+                        123 Academic Way, Prestige City<br>
+                        Salem, Tamil Nadu 636001<br>
+                        India
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="material-symbols-outlined text-lg">phone</span>
+                    <div class="contact-text">
+                        +91 0427-2383970<br>
+                        +91 0427-2383971
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <span class="material-symbols-outlined text-lg">mail</span>
+                    <div class="contact-text">
+                        info@academicprestige.edu
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admission Button -->
+            <button class="admission-btn-mobile" id="admission-btn">Open Admission</button>
+        </div>
+    </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[100vh] min-h-[600px] flex items-center overflow-hidden animate-gradient">
+            <div class="absolute inset-0 z-0">
+                <img alt="Modern school building and happy students"
+                    class="w-full h-full object-cover scale-105 mix-blend-overlay opacity-40"
+                    src="assets/slider01.jpg" />
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-[1280px] mx-auto px-8 w-full mt-16">
+                <div class="max-w-2xl text-white">
+                    <span
+                        class="inline-block bg-secondary px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-6 shadow-lg">Established
+                        1984</span>
+                    <h1 class="font-h1 text-h1 mb-6 leading-tight drop-shadow-md">Empowering Minds, Shaping Global
+                        Leaders</h1>
+                    <p class="text-body-lg mb-8 opacity-90 leading-relaxed max-w-xl">Where tradition meets modern
+                        pedagogy. Experience a transformative education that prepares students for the challenges of
+                        tomorrow in our state-of-the-art facilities.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="bg-secondary text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Explore
+                            Programs</button>
+                        <button
+                            class="border-2 border-white/50 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-all backdrop-blur-sm">Campus
+                            Tour</button>
+                    </div>
+                </div>
+            </div>
+            <div class="blob-bg w-[500px] h-[500px] bg-secondary -bottom-20 -right-20 animate-pulse"></div>
+        </section>
+        <!-- Feature Boxes -->
+        <section class="py-20 bg-white relative z-20 -mt-16">
+            <div class="max-w-[1280px] mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="p-10 bg-white rounded-6xl shadow-[0_20px_50px_rgba(8,0,42,0.08)] hover:-translate-y-2 transition-transform duration-300 group border border-slate-50">
+                        <div
+                            class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
+                            <img src="assets/about-icon.png" alt="">
+                        </div>
+                        <h3 class="font-h3 text-h3 text-primary mb-4">Activities</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">School conducts various activities for students
+                            for their holistic development, from robotic labs to performing arts.</p>
+                    </div>
+                    <div
+                        class="p-10 bg-white rounded-6xl shadow-[0_20px_50px_rgba(8,0,42,0.08)] hover:-translate-y-2 transition-transform duration-300 group border border-slate-50">
+                        <div
+                            class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
+                            <img src="assets/about-icon01.png" alt="">
+                        </div>
+                        <h3 class="font-h3 text-h3 text-primary mb-4">Events</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">The School has scheduled various events
+                            throughout the year including Annual Day, Sports Meet and Cultural Fests.</p>
+                    </div>
+                    <div
+                        class="p-10 bg-white rounded-6xl shadow-[0_20px_50px_rgba(8,0,42,0.08)] hover:-translate-y-2 transition-transform duration-300 group border border-slate-50">
+                        <div
+                            class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary transition-colors">
+                            <img src="assets/about-icon02.png" alt="">                        </div>
+                        <h3 class="font-h3 text-h3 text-primary mb-4">Achievements</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">The Management and staff members of our
+                            institution are proud to convey our record of 100% academic excellence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="py-section-padding bg-white overflow-hidden">
+            <div class="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <div class="relative w-full aspect-square max-w-md mx-auto">
+                        <div class="absolute inset-0 bg-secondary/5 rounded-full -m-4"></div>
+                        <div
+                            class="w-full h-full circular-mask border-8 border-white shadow-2xl relative z-10 overflow-hidden">
+                            <img alt="Academic leadership and campus scenery" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1DyDq1caBeShXxrBib5WRDmaUXiHW5HUhMnWOKYNNFsn9ms0leIDNHL3xttiIQkl82XSdnyd6nYwRHo2tC_tCXujdbuXHW4rFvM5tBl12EGoVh_HNljGtdnf4xfwGk31T7lWkVTmESm1qsYy0cDjPHuyHSx8Nzp72lSsF_XyMtU5CCmz_OPmmy44w0kQHGPr2EyFsB8Aa0MDvOkxeCHsxxVpPhpQG63g4Zn-yqSQ2i_Owv2GXJZh3baCBbHDcFWeDlPkkTAPDGJQ" />
+                        </div>
+                        <!-- Decorative elements -->
+                        <div
+                            class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg z-20 flex items-center space-x-3">
+                            <div class="bg-secondary p-2 rounded-full">
+                                <span class="material-symbols-outlined text-white text-xl">workspace_premium</span>
+                            </div>
+                            <div>
+                                <div class="font-bold text-primary leading-none">Top Rated</div>
+                                <div class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Institutions 2024
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-slate-400 font-bold tracking-widest uppercase text-sm block mb-4">\\\ ABOUT SCHOOL
+                        \\\</span>
+                    <h2 class="font-h2 text-h2 text-primary mb-6">Who Are We?</h2>
+                    <p class="text-body-md text-slate-600 mb-6">AcademicPrestige was founded in 1984 as a beacon of
+                        learning. Situated on the Steel Plant Road, opposite to Govt. Medical College, the school is
+                        just 12 km distance away from Salem town.</p>
+                    <p class="text-body-md text-slate-600 mb-8">Managed by dedicated educators, the school seeks to
+                        provide sound academics to its pupils, ensuring at the same time an opportunity to excel in
+                        sports, co-curricular and extracurricular activities.</p>
+                    <button
+                        class="bg-secondary text-white px-8 py-3 rounded font-bold hover:bg-opacity-90 transition-all uppercase tracking-wider text-sm shadow-md">Read
+                        More</button>
+                </div>
+            </div>
+        </section>
+        <!-- Notice Board Section -->
+        <section class="py-20 bg-primary text-white overflow-hidden">
+            <div class="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Examination Flash -->
+                    <div class="notice-card p-6 rounded-lg min-h-[300px] flex flex-col">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="material-symbols-outlined text-secondary">assignment_turned_in</span>
+                            <h4 class="text-xs font-bold text-slate-300 tracking-widest uppercase">// EXAM FLASH \\</h4>
+                        </div>
+                        <h3 class="text-xl font-bold mb-6">EXAMINATION</h3>
+                        <ul class="space-y-4 flex-grow">
+                            <li class="flex items-start space-x-3 group cursor-pointer">
+                                <span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2"></span>
+                                <span class="text-sm group-hover:text-secondary transition-colors">CBSE Class X/XII Date
+                                    Sheet 2024-25 Released</span>
+                            </li>
+                            <li class="flex items-start space-x-3 group cursor-pointer">
+                                <span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2"></span>
+                                <span class="text-sm group-hover:text-secondary transition-colors">Internal Assessment
+                                    Guidelines Update</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- News Flash -->
+                    <div class="notice-card p-6 rounded-lg min-h-[300px] flex flex-col">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="material-symbols-outlined text-secondary">newspaper</span>
+                            <h4 class="text-xs font-bold text-slate-300 tracking-widest uppercase">// NEWS FLASH \\</h4>
+                        </div>
+                        <h3 class="text-xl font-bold mb-6">NEWS &amp; UPDATES</h3>
+                        <ul class="space-y-4 text-sm flex-grow">
+                            <li
+                                class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2 flex justify-between items-center">
+                                <span>• Annual Day 2025 Registration</span>
+                                <span class="text-[10px] bg-secondary/20 px-2 py-0.5 rounded text-secondary">New</span>
+                            </li>
+                            <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• Investiture
+                                Ceremony Highlights</li>
+                            <li class="hover:text-secondary cursor-pointer">• Sports Day 2025 Preparation</li>
+                        </ul>
+                    </div>
+                    <!-- Circulars Flash -->
+                    <div class="notice-card p-6 rounded-lg min-h-[300px] flex flex-col">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="material-symbols-outlined text-secondary">mail_outline</span>
+                            <h4 class="text-xs font-bold text-slate-300 tracking-widest uppercase">// CIRCULARS FLASH \\
+                            </h4>
+                        </div>
+                        <h3 class="text-xl font-bold mb-6">CIRCULARS</h3>
+                        <ul class="space-y-4 text-sm flex-grow">
+                            <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• School
+                                Reopening Details - Phase 2</li>
+                            <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• Fee Payment
+                                Schedule Quarter 4</li>
+                            <li class="hover:text-secondary cursor-pointer">• Winter Uniform Circular</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 h-full">
+                    <div class="rounded-lg overflow-hidden h-full min-h-[300px] relative group">
+                        <img alt="Academic achievement board"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwyQ-ThRrRpyyU0Nn_O5DGbHH4Ne5jXHdIZWEZoBaFbO0s3mUq9K-uqfbR8SGnTBj9SMN9eYF3SUN9WDlgLpqR7HkkcSkMIpCOO-AFsosXm-pFpySscGluSU9_TA3N-OikVthmIvFe7k0W9theZZh3bbm_YqRpJ00lydNldqggyL_phO2qSnbcNq_bT5XfXUNSip1LqNcuQI0H8ue2QDvC6Uh_8v6Kc5diTwmfERxlJ9P-lwSK7EHoDfkaVlIsFcPL9qy2mtKTWQc" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <div class="text-xs font-bold uppercase tracking-widest mb-1 text-secondary">Feature
+                                    News</div>
+                                <div class="text-lg font-bold">Gold Medalists 2024 Science Olympiad</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Leadership Messages -->
+        <section class="py-section-padding bg-[#F8F9FA] relative">
+            <div class="max-w-[1280px] mx-auto px-8 relative z-10">
+                <div class="mb-12">
+                    <span class="text-slate-400 font-bold tracking-widest uppercase text-sm block mb-2">// WORDS OF
+                        WISDOM \\</span>
+                    <h2 class="font-h2 text-h2 text-primary">FROM THE DESK</h2>
+                </div>
+                <div class="space-y-24">
+                    <!-- Correspondent -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="relative order-2 lg:order-1">
+                            <span class="material-symbols-outlined text-secondary text-6xl mb-4 block opacity-30"
+                                style="font-variation-settings: 'FILL' 1">format_quote</span>
+                            <p class="text-slate-600 text-lg leading-relaxed italic mb-8 relative z-10">
+                                "I extend to you and your family a very warm welcome to AcademicPrestige. Our ultimate
+                                objective is to give education that gives life. We aspire to achieve this through an
+                                all-round education by availing sufficient opportunities for our students to bloom into
+                                responsible global citizens."
+                            </p>
+                            <div class="border-t-2 border-secondary pt-4 inline-block">
+                                <h4 class="font-bold text-xl text-primary">Mr. Julian Vane</h4>
+                                <p class="text-secondary font-semibold uppercase tracking-wider text-sm">Correspondent
+                                </p>
+                            </div>
+                        </div>
+                        <div class="relative order-1 lg:order-2 flex justify-center">
+                            <div class="w-80 h-80 circular-mask border-8 border-white shadow-xl bg-white p-2">
+                                <img alt="Professional portrait of Correspondent Mr. Julian Vane"
+                                    class="w-full h-full object-cover circular-mask"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXNOATupMaZnOU-cKLEyz2XDCajJpzutUXcvhuYdll_jvOZ5fpxsBHMSMimG58xzDJWE27radXtNB3ezzZ1VXmXyi8vuP0f4l-g_R4w1GTbXXuozj4IrD6Xf9HQ2HgqZ8D9VbOWmGGCvFxJMaCFnndelfzLe5WlLMlZTQaYkT-_clyQnXUlY8oeXX5fKaJixhcpdvkXyp8AI9wLxHNLvK0-mGnHYjJ7iVHAkmmdTHk9fs3lDH4pOf-E_F9tQfMQr7nmgNWWv1KUcU" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Principal -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="relative flex justify-center">
+                            <div class="w-80 h-80 circular-mask border-8 border-white shadow-xl bg-white p-2">
+                                <img alt="Professional portrait of Principal Dr. Elena Sterling"
+                                    class="w-full h-full object-cover circular-mask"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6QYhSeHBuQYkIpWyzzzN7MkTH_09QYVEeLjFJBtJssfGvUBmHGRl6SPKZELTysgiHx6L_H21A3cHex8uRykp-kIgFIPENMm2fzfiGj-wltxu91Xs7EwYS-ZtJxDyk3RfwBbU4vfs7B8rmJIQLsKZBPvZu-QgXj5ACgGmmZikxqTdlfB3uFOpVqRUxiNOT41JrrXY8aRPU7xsNBDb8cRW7wVPX179m5DAkYjD4fPD_0iWgwRpU4vS6tOkiWT5IkMwFLZigF3elHPI" />
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <span class="material-symbols-outlined text-secondary text-6xl mb-4 block opacity-30"
+                                style="font-variation-settings: 'FILL' 1">format_quote</span>
+                            <p class="text-slate-600 text-lg leading-relaxed italic mb-8 relative z-10">
+                                "Our students are at the heart of whatever we do. Our motto, Truth, Knowledge, and
+                                Service, is the cornerstone of every student's life. We strive to create a community of
+                                progressive, lifelong learners who will leave their positive mark on the world."
+                            </p>
+                            <div class="border-t-2 border-secondary pt-4 inline-block">
+                                <h4 class="font-bold text-xl text-primary">Dr. Elena Sterling</h4>
+                                <p class="text-secondary font-semibold uppercase tracking-wider text-sm">Principal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute top-1/2 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
+        </section>
+        <!-- Activity Icons Grid -->
+        <section class="py-20 bg-primary">
+            <div class="max-w-[1280px] mx-auto px-8 text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-2">Campus Life &amp; Facilities</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="max-w-[1280px] mx-auto px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Senior students in labs"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTNqsBL2CwxgLcavE2h4RbWJuGxjJxedEZkgBSgLFaYRe3urhTKbDFUomzPU9Qdef5ECwHTZtdkm-qZ120RXMQ-LqcgE3Xf50acEx10MQL4zzgnVp_b-EQueliE90UILFWwVKdMHxmfjWwXVwRHJelj9urNG6xYbPLdhU1wubeuZVEOhbb1O5U2Qb6D_ECpZ0Eyf3Cw7_lGLtuNdpWPfItfCORBcz74ec5hXfiVGolsTUTI_AXIQb0uh0TV7f3SP_O_HpkVz4oIgk" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">school</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Academic Excellence</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Sports field"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDubR7_g6dMBsEE7AjGRQAnv7ww565kWmQOpSjloNQ-hVz9h0SaHkGxLgaPvqSn9s8PjTS3i4d2G6i3c064f_I2mSeUaTh4PZQrAk7SlH10Zg4ZwXzqIH4U-DvwLoPb5VDLv4sOe_iTTPwekQmRrdqAf8ZR-d__bPPK577XCRfBtJ1iBGPiVEIYV73qqDK_bwwbEK-gHoDNFXWrn8CN0z484K9inycck7m_H5P8kGkpK1NMGVVcK60NSCAJ-wSIUgLBy7R4DB-ADPE" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">sports_soccer</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Sports Hub</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Alumni event"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEaCaSsfmh8UpjOV0qbSNHgNmYBBUBusXoTWUfVJEvA0kNP_Sk-24e2TzeB-3lu1A0fVujtvEfQz9jxY4CLaS2oF37TSr_SDNcQRw1qclc9ZLfKg3642o13r6rFOtEE5S3Yb_RiV7Hf3N47hjgoZmMl_xtLfUoIYZHcyhNwT91BIm6PYA109UC9Bh688wmSCk2YDOqbampKZnBDpKWd5UIQP9bAsLLxUts75ZdD8SbOZdPkRKtOJy3Fdlk1gMDt7VdSoFu-JrBvTo" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">groups</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Global Alumni</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Library"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpFMxe7voaQsi1kjPzuwnHeI8p7n-DD6bX7QiC6f1hMJYt0zMv0Gj9y21p2Yh4UFMgh9tSk6vHVmv05fgzPayzTpLGHkCMJDW5Vg31L7EZv8EU-eexx6S_U5kTKAXv8B41Rk6LFT60x46ORDUZwEW2kXZiXYUrwqyWd9QwTo05a4lC5IX7WxUW9FERoSaNYomr1sS-TrxqJW88NBTog6nMP9ScpjfRLP1pPB_Z2BTCdM7-BlSzWanAI1cV9V4Q6FDRrfnoyJ9dkX0" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">auto_stories</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Knowledge Center</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Creative Arts"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYA7WkmTe2JLg-VkprTDgsaNTc7HpaUsu3SNyro8rdvJhrS0B1vBLVUr_QNHBpGLu97ynzwlrlyjtyyi41ytXmKONb5VaUovX6zGBNehUE71DiWZQvnifdjLqrmUwWX-rW7T2IjJ8zkZEniVBzqaRiYQPmgwSCQ_LKtpJSMCp9ogVuJDuiYp_w2FRdFDQhuGx-4rKLRK4E7QjsVZLCTJoNtoZohBKsykgvJU_8zW8DKDJhdUxabqWKSTyi266zdrRvMtnMi5h6V3o" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">brush</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Creative Arts</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Science lab"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuARltt52SMzlrddxHcu4ftz0YNQhs5hhxdaMUjhkk9czbT4daegkYRNvt9hVfY6BXIFp0UBKhD_MyW8Zj0crTEwm0gx5SGriMl9N-CO6duHhxeyiwhfXCNtAenEBUffcuF2C22VkJVKMAnB8ikuGZnVMI7tIGr8FnaKAth7R20miEoI0qBpwCOE7sMJKmMkRQw94IcR1BVTCM1hrmJCZWiyRoF8pNOMAJoCqR3susut8IUcHxUQy4nh_YzIoRO_jARNtypaCGzVaio" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">science</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Innovation Lab</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Global exchange"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZQ6RZCUF4BavQLvEzpqMf0WMtxhynImR_t8E9H-uCnKBvvdlTP6Ujn_VB2I9sHCDeS1oO0EiyFCYD4M7Tv-jQyQIsseTl_PRIvwa8TUkcRk0Z6_HNT7Ecb_vmcSra8wxBGjutzAbn77uhsOMJrSB8pYDka3COJx4j2M_lz_pidGnkUH8osUYOWGmB0a22tmrU6sOCrVG-p0x_SCf4eQD4U2cX7Ijl-ALwd8c0Y0bEe996rAkVW4VyzWCbx7SRBS1AdTewBZIrkNA" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">public</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Exchange Programs</span>
+                    </div>
+                    <div
+                        class="group flex flex-col items-center p-8 border border-white/10 rounded-xl hover:bg-white/10 hover:border-secondary transition-all cursor-pointer text-center relative overflow-hidden">
+                        <img alt="Memories"
+                            class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-20 transition-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3y_xL6Df7GVE_z39d_IZBNiHFxLkTEn2u2gKEBnYj7qij2zYhi3oTOEaHFvaBMzwHXXNh_-luZTAydGAx8BhtqcJRG4BKbCbsHt5QFXfNwDE3PDyg56q-XW5_MOtwIGnGtMJFTRPIpFkVz04P7IOMb-KJnuuzud-pgUSGsOW7TNdy5ZLK8Ou036qHTa-gBx39j93NIkMoH8LQrnp2RGbI1W7IOcganauek7WIbv_7XqusW0RTCcL1W9q2g2tkTwVfoXRgK7m3FQY" />
+                        <span
+                            class="material-symbols-outlined text-secondary text-5xl mb-4 group-hover:scale-110 transition-transform">camera</span>
+                        <span class="text-white font-semibold text-sm relative z-10">Campus Memories</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Board Examination Results -->
+        <section class="py-section-padding bg-white">
+            <div class="max-w-[1280px] mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-primary font-bold">CLASS 10<sup>TH</sup> TOPPERS</span>
+                            <a class="text-secondary text-xs font-bold underline hover:no-underline" href="#">VIEW
+                                ALL</a>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden group hover:shadow-2xl transition-all p-6 border-t-4 border-t-secondary">
+                            <div
+                                class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-slate-50 mb-6 relative">
+                                <img alt="Class 10 high-achieving student"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuATkZVQeaUMZDuJ4YTjIc1cuxOHpbdFdmFDa3nRiZmn0l2vhZdlpF18QfzSV9bqGHyQ4ndp9WCDsxqwTUxZJJlnUJOPAgspYocB7gamu6enpOylmrzs8Uwh9qS7JJ2F5wLpcj_bW3tl7X-9TVLD0RatPzx9sK4TUkm2O7Ga1XZEGvOPgSUV4BkntuiUSl2KPHXaPQuirLuWEw71CaZaBHcc1uEHZbmHK2aLOUIhU5UwtjtX8igyl0m2Z-uDYF7GekO0KxfI2nhvzYM" />
+                                <div
+                                    class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="text-white font-bold">98.4%</span>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-primary">Sarah Johnson</h4>
+                            <p class="text-slate-500 text-xs mt-1">Batch 2023-24</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <h2 class="font-bold text-primary text-xl mb-4 uppercase tracking-widest">Result Analysis - X
+                            &amp; XII</h2>
+                        <div
+                            class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden h-64 flex flex-col items-center justify-center p-6 bg-slate-50">
+                            <img alt="Graduation caps and exam results analysis"
+                                class="max-w-full h-32 object-contain mb-4"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVnS9PKfL_07KYsqAT41FhaMdbJXa8M69_RgLIoaYqu85BOYR0BfOrJK6CmeoI_1TgBfSeyZEfFadEVSxjnv7_cMHMcx-yRK2bLI4DQSoiwJ-agNvWZobkb24D4vFQlnhkJvkvwWKwib66LKzgYErNpdLYf4SMkeumEDDsMCLVLFmYVY2N7W1F8UU0Haz17EzhM9EO5qXiZDqjZwaHFtLsflrqONHn3T0CpLeB95nMKMXcfDH2-8DE2Jruf-pJK9IJOUAVED2VSTw" />
+                            <div class="flex space-x-6 text-sm">
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-3 h-3 bg-secondary rounded"></span>
+                                    <span class="text-slate-600">Distinctions</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-3 h-3 bg-primary rounded"></span>
+                                    <span class="text-slate-600">First Class</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-primary font-bold">CLASS 12<sup>TH</sup> TOPPERS</span>
+                            <a class="text-secondary text-xs font-bold underline hover:no-underline" href="#">VIEW
+                                ALL</a>
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden group hover:shadow-2xl transition-all p-6 border-t-4 border-t-secondary">
+                            <div
+                                class="w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-slate-50 mb-6 relative">
+                                <img alt="Class 12 high-achieving student"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMH4ktUVE3P7aJlg7_mifFoS2jekjQsrdqPfFy7Strhe14UbqVEkrFB9qEj5RVKxbHn0K7YEoSF28PH1GLB7umcZlC_mKhfqX1QNG3IU4lEUS3HlHDyUfqmzfSJXhCvRtVnPeDHrACodpwgYQI1Qx2uHCG86FSoo6U1H2uOmtqTQYTVY2unFZMXWFjWktBJU2XrCJUfz2qVRtaQIXvPWtvYb34rDHu7NKlv2_sLMgC-yT3Ji-2HKhYIIlQlsyHGSFwwxCyRBNXrUg" />
+                                <div
+                                    class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="text-white font-bold">99.2%</span>
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-primary">Michael Chen</h4>
+                            <p class="text-slate-500 text-xs mt-1">Batch 2023-24</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Photo Gallery Section -->
+        <section class="py-section-padding bg-[#F8F9FA]">
+            <div class="max-w-[1280px] mx-auto px-8 text-center">
+                <span class="text-slate-400 font-bold tracking-widest uppercase text-xs block mb-2">// SOME MEMORABLE
+                    MOMENTS \\</span>
+                <h2 class="font-h2 text-h2 text-primary mb-12">PHOTO GALLERY</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group">
+                        <img alt="Students in cultural events"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB8jLrtFqURP6mJz7sbpGmvjFExFixwohEfoKA_bxlGuq04RkAo_VSj3OLW_4IMqUHrQabpFrYoPjWDBLpU6xbnuq1W5wM_IjwuBeokpwX8Z6ltRgy6z7kuy83SUdBE45qXtJDDEBJQ9dLNGx4enwQNCrAoqZBRBRB0xhHKyTmQXYOHRGr6dqHGjs0qnrWJj5cGFLWVCkoMttM-EM2tAQ1XsMhAKQMoEXXzRSyU3re3c0WwDnhYeyh_706xWSJ6Jthg3_DGo88ao8" />
+                        <div
+                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span
+                                class="text-white border border-white px-4 py-1 text-xs uppercase tracking-widest">Cultural
+                                Fest</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group">
+                        <img alt="Students at science fair"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFI_tJs0n6pQTnGvHpILMXwjp4ZwQtUSxbBnk1VIevkprlIgrjIcYrK0HrtsbQ2Mt5sw9Je3KqBf_2FADSEx-v1pEPJ7QmVTxHJosjj4zJM8f7tVDLvWYxePG5tKEgu5k7Dwd0cc1DDGhoOCyPOV1CxhPYZtWzkVlQXn7zcj7r8YU_uUZLnlaOTl9DEvD_MZwkRLmLUBcRrFu3fj82c0dFa6Dserd9UmE1gokLLvyg7R7qXmqMtEfZ0u5Y3FM9zPv3eaHUxE8USMY" />
+                        <div
+                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span
+                                class="text-white border border-white px-4 py-1 text-xs uppercase tracking-widest">Science
+                                Fair</span>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group">
+                        <img alt="Students in sports events"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2tPhYLce2X-qJ6INY9gt_LXkagGcDheg8DZY4rru1HdhhPHt4-GqLlTXMiwQ2f41HKJxxWQl5_0uwIXP3DT9R5o-54fjb3UTothtZ6Y1n7Or35ToXmczttuP_srlPocRdHwx0wNxSu1Af7oDoyY-728NhcpYlka1b4CEfHYYPDvNrrnPlbdM2YT7zTciFN2Ms--9vH4Y-Y1kvl8WjuBXfdCcqCvJ6k7VUSsJmUCzyEkO2pgOO-QLRfg_lRHoOSBQo-oDNIT8MiCw" />
+                        <div
+                            class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span
+                                class="text-white border border-white px-4 py-1 text-xs uppercase tracking-widest">Annual
+                                Sports</span>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="bg-secondary text-white px-10 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all uppercase text-sm shadow-lg">View
+                    Full Gallery</button>
+            </div>
+        </section>
+    </main>
+    <footer class="relative w-full pt-20 pb-10 bg-primary text-white font-['Plus_Jakarta_Sans'] text-sm">
+        <div class="footer-curve">
+            <svg data-name="Layer 1" preserveaspectratio="none" viewbox="0 0 1200 120"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="shape-fill"
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z">
+                </path>
+            </svg>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1280px] mx-auto px-8 relative z-10">
+            <div>
+                <div class="text-xl font-bold mb-6 flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-secondary rounded flex items-center justify-center">
+                        <span class="text-white text-[10px] font-bold">AP</span>
+                    </div>
+                    <span>AcademicPrestige</span>
+                </div>
+                <p class="text-slate-400 mb-6 leading-relaxed">A pioneering institution dedicated to crafting the future
+                    leaders of tomorrow through holistic and innovative education since 1984. We believe in nurturing
+                    both character and intellect.</p>
+                <div class="flex space-x-4">
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">facebook</span>
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">video_library</span>
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">alternate_email</span>
+                    <span
+                        class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors">share</span>
+                </div>
+            </div>
+            <div>
+                <h5
+                    class="font-bold mb-6 text-sm uppercase tracking-widest text-secondary border-l-2 border-secondary pl-3">
+                    Quick Links</h5>
+                <ul class="space-y-4 text-slate-400">
+                    <li><a class="hover:text-secondary transition-all flex items-center space-x-2" href="#"><span
+                                class="text-[8px]">▶</span><span>Upcoming Events</span></a></li>
+                    <li><a class="hover:text-secondary transition-all flex items-center space-x-2" href="#"><span
+                                class="text-[8px]">▶</span><span>Latest News</span></a></li>
+                    <li><a class="hover:text-secondary transition-all flex items-center space-x-2" href="#"><span
+                                class="text-[8px]">▶</span><span>Manager's Message</span></a></li>
+                    <li><a class="hover:text-secondary transition-all flex items-center space-x-2" href="#"><span
+                                class="text-[8px]">▶</span><span>Principal's Message</span></a></li>
+                    <li><a class="hover:text-secondary transition-all flex items-center space-x-2" href="#"><span
+                                class="text-[8px]">▶</span><span>TC Issued</span></a></li>
+                </ul>
+            </div>
+            <div>
+                <h5
+                    class="font-bold mb-6 text-sm uppercase tracking-widest text-secondary border-l-2 border-secondary pl-3">
+                    Contact Information</h5>
+                <ul class="space-y-6 text-slate-400">
+                    <li class="flex items-start space-x-3">
+                        <span class="material-symbols-outlined text-secondary shrink-0">location_on</span>
+                        <span>123 Academic Way, Prestige City, Salem, Tamil Nadu 636001, India</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <span class="material-symbols-outlined text-secondary shrink-0">phone</span>
+                        <span>+91 0427-2383970 / 2383971</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <span class="material-symbols-outlined text-secondary shrink-0">mail</span>
+                        <span>info@academicprestige.edu</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h5
+                    class="font-bold mb-6 text-sm uppercase tracking-widest text-secondary border-l-2 border-secondary pl-3">
+                    Newsletter Subscription</h5>
+                <p class="text-slate-400 mb-4">Get monthly updates on school activities and important announcements.</p>
+                <div class="flex mt-6">
+                    <input
+                        class="w-full px-4 py-3 rounded-l-lg border-none bg-white/5 focus:ring-1 focus:ring-secondary text-white text-xs"
+                        placeholder="Your Email Address" type="email" />
+                    <button
+                        class="bg-secondary text-white px-6 py-3 rounded-r-lg hover:bg-opacity-90 transition-all font-bold uppercase text-[10px]">Join</button>
+                </div>
+                <div class="mt-4 flex items-center space-x-2 text-[10px] text-slate-500">
+                    <span class="material-symbols-outlined text-xs">shield</span>
+                    <span>We respect your privacy</span>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-[1280px] mx-auto px-8 mt-20 pt-8 border-t border-white/10 text-center text-slate-500 text-xs">
+            <p>Copyright © 2024 Academic Prestige Institution. All rights reserved. | <a class="hover:text-white"
+                    href="#">Privacy Policy</a> | <a class="hover:text-white" href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+    <button
+        class="fixed bottom-6 right-6 bg-secondary text-white p-3 rounded-full shadow-2xl hover:bg-opacity-90 hover:-translate-y-1 transition-all z-[100] flex items-center justify-center">
+        <span class="material-symbols-outlined">expand_less</span>
+    </button>
+
+    <script>
+        // Mobile Menu Functionality
+        const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
+        const mobileMenuModal = document.getElementById('mobile-menu-modal');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+        // Open mobile menu
+        if (mobileMenuTrigger) {
+            mobileMenuTrigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenuModal.classList.add('active');
+            });
+        }
+
+        // Close mobile menu
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenuModal.classList.remove('active');
+            });
+        }
+
+        // Close menu when clicking on the modal background
+        if (mobileMenuModal) {
+            mobileMenuModal.addEventListener('click', function(e) {
+                if (e.target === mobileMenuModal) {
+                    mobileMenuModal.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking on a link
+            const menuLinks = mobileMenuModal.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuModal.classList.remove('active');
+                });
+            });
+        }
+
+        // Prevent modal close when clicking on content
+        const mobileMenuContent = document.querySelector('.mobile-menu-content');
+        if (mobileMenuContent) {
+            mobileMenuContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+
+        // Admission button functionality
+        const admissionBtn = document.getElementById('admission-btn');
+        if (admissionBtn) {
+            admissionBtn.addEventListener('click', function() {
+                // Close the mobile menu first
+                mobileMenuModal.classList.remove('active');
+                // You can add your admission form or redirect here
+                console.log('Admission button clicked - Add your admission form or redirect here');
+                // Example: window.location.href = '/admission';
+            });
+        }
+
+        // Scroll to top button functionality
+        const scrollTopBtn = document.querySelector('button.fixed');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Show/hide scroll button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.style.opacity = '1';
+                    scrollTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    scrollTopBtn.style.opacity = '0.3';
+                    scrollTopBtn.style.pointerEvents = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
