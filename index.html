@@ -165,6 +165,131 @@
             background-size: 400% 400%;
             animation: gradient-bg 15s ease infinite;
         }
+        .group:hover > [data-dropdown-menu] {
+            display: block;
+        }
+        .notice-marquee {
+            overflow: hidden;
+        }
+        .animate-notice-marquee {
+            animation: notice-scroll 12s linear infinite;
+        }
+        @keyframes notice-scroll {
+            0%, 20% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-25%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        .leadership-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .leadership-particles span {
+            position: absolute;
+            border-radius: 9999px;
+            opacity: .35;
+            animation: float 10s ease-in-out infinite;
+        }
+        .leadership-particles span:nth-child(1) {
+            width: 12px;
+            height: 12px;
+            background: rgba(113, 255, 121, .45);
+            top: 12%;
+            left: 10%;
+            animation-duration: 12s;
+        }
+        .leadership-particles span:nth-child(2) {
+            width: 18px;
+            height: 18px;
+            background: rgba(0, 107, 29, .25);
+            top: 30%;
+            right: 12%;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+        .leadership-particles span:nth-child(3) {
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 107, 29, .2);
+            bottom: 20%;
+            left: 30%;
+            animation-duration: 14s;
+            animation-delay: 4s;
+        }
+        .leadership-particles span:nth-child(4) {
+            width: 14px;
+            height: 14px;
+            background: rgba(113, 255, 121, .3);
+            bottom: 10%;
+            right: 22%;
+            animation-duration: 11s;
+            animation-delay: 1s;
+        }
+        .leadership-particles span:nth-child(5) {
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 52, 88, .2);
+            top: 45%;
+            left: 50%;
+            animation-duration: 13s;
+            animation-delay: 3s;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-12px) scale(1.05);
+            }
+        }
+        .campus-life .group {
+            gap: 1rem;
+        }
+        .campus-life .group span {
+            color: #7fba48;
+        }
+        #gallery-scroll {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        #gallery-scroll:hover {
+            cursor: grab;
+        }
+
+        /* Responsive logo fixes */
+        @media (max-width: 320px) {
+            .header-logo {
+                height: 48px !important;
+                width: auto !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .footer-logo {
+                max-height: 64px !important;
+                width: auto !important;
+                max-width: 210px !important;
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-logo {
+                max-height: 64px !important;
+                width: auto !important;
+                max-width: 300px !important;
+                display: block !important;
+            }
+        }
     </style>
 </head>
 
@@ -173,58 +298,215 @@
         <div class="flex justify-between items-center w-full px-4 lg:px-8 py-3 max-w-[1440px] mx-auto">
             <!-- Logo on the left -->
             <div class="flex items-center space-x-3">
-                <img src="assets/logo.png" alt="">
+                <img src="assets/logo.png" alt="St. Vincent Pallotti Logo" class="h-20 w-auto header-logo" />
             </div>
-            <!-- White Pill Container for Navigation -->
-            <div
-                class="hidden xl:flex bg-white rounded-l-full py-3 px-10 items-center space-x-6 shadow-xl relative -mr-8">
-                <nav
-                    class="flex items-center space-x-6 font-['Plus_Jakarta_Sans'] font-bold text-[10px] tracking-wider uppercase text-black">
+            <!-- Desktop Navigation -->
+            <div class="hidden xl:flex bg-white rounded-l-full py-3 px-8 xl:px-10 items-center shadow-xl relative -mr-8 overflow-visible">
+                <nav class="flex flex-wrap items-center gap-4 font-['Plus_Jakarta_Sans'] font-bold text-sm tracking-wider text-black">
                     <a class="hover:text-[#063B56] transition-colors" href="#">Home</a>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>About Us</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            About Us
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Overview</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Vision &amp; Mission</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Leadership</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Management</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Management
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Board of Directors</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Administrative Team</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Governance</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Academics</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Academics
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Curriculum</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Faculty</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Clubs &amp; Labs</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Beyond Academics</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Beyond Academics
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Sports</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Arts</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Community Service</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Admission</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Admission
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Apply Now</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Fee Structure</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Visit Admission Office</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Campus</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Campus
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Campus Life</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Facilities</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Map</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Community</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Community
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Parent Forum</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Alumni</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Volunteering</a>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-1 cursor-pointer hover:text-[#063B56]">
-                        <span>Gallery</span>
-                        <span class="material-symbols-outlined text-xs">expand_more</span>
+                    <div class="relative group" data-dropdown>
+                        <button type="button" class="flex items-center gap-1 text-sm hover:text-[#063B56] transition-colors" data-dropdown-btn>
+                            Gallery
+                            <span class="material-symbols-outlined text-sm">expand_more</span>
+                        </button>
+                        <div class="hidden absolute left-0 top-full mt-2 w-52 rounded-3xl bg-white border border-slate-200 shadow-2xl py-3 z-50" data-dropdown-menu>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Photos</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Videos</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Media Library</a>
+                        </div>
                     </div>
                     <a class="hover:text-[#063B56] transition-colors" href="#">Contact Us</a>
                 </nav>
                 <div class="pl-4 border-l border-gray-200">
-                    <span class="material-symbols-outlined text-black font-bold cursor-pointer">menu</span>
+                    <button id="desktop-popup-btn" type="button" class="text-black font-bold cursor-pointer">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
                 </div>
             </div>
             <!-- Mobile Menu Icon -->
             <div class="xl:hidden">
-                <span class="material-symbols-outlined text-white text-3xl cursor-pointer">menu</span>
+                <button id="mobile-menu-btn" type="button" class="text-white text-3xl cursor-pointer">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
             </div>
         </div>
     </header>
+    <div id="desktop-menu-overlay" class="hidden fixed inset-0 z-50 bg-black/40 px-4 py-6">
+        <div class="max-w-xl mx-auto h-full flex flex-col justify-center">
+            <div class="bg-white rounded-[2rem] shadow-2xl p-8 relative overflow-hidden">
+                <button id="desktop-menu-close-btn" type="button" class="absolute top-4 right-4 text-slate-500 hover:text-primary">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="flex items-center justify-center rounded-full bg-[#002538] p-3">
+                        <img src="assets/logo.png" alt="Logo" class="h-25 w-auto object-contain" />
+                    </div>
+                    <!-- <div>
+                        <p class="font-bold text-xl text-primary">St. Vincent Pallotti School</p>
+                        <p class="text-slate-500 text-sm">Admissions Open for 2026-27</p>
+                    </div> -->
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2 mb-6">
+                    <div class="rounded-3xl bg-slate-100 p-5">
+                        <p class="text-slate-500 text-xs font-semibold mb-2">Address</p>
+                        <p class="font-bold text-base text-primary">Main Road, Opp. Govt. Medical College, Salem</p>
+                        <p class="text-slate-600 text-sm mt-2">St. Vincent Pallotti Matriculation Higher Secondary School, 636030</p>
+                    </div>
+                    <div class="rounded-3xl bg-slate-100 p-5">
+                        <p class="text-slate-500 text-xs font-semibold mb-2">Contact</p>
+                        <p class="font-bold text-base text-primary">+91 0427-2383970</p>
+                        <p class="text-slate-600 text-sm">svpslm@gmail.com</p>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <a href="#" class="block rounded-3xl bg-secondary text-white px-5 py-4 text-sm font-semibold shadow-lg hover:bg-secondary/90 transition">Admissions Open</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-black/40">
+        <div class="absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl p-6 overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                     <div class="flex items-center justify-center rounded-full bg-[#002538] p-3">
+                        <img src="assets/logo.png" alt="Logo" class="h-25 w-auto object-contain" />
+                    </div>
+                </div>
+                <button id="mobile-menu-close-btn" type="button" class="text-slate-500 hover:text-primary">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+            <div class="grid gap-3 mb-6">
+                <div class="rounded-3xl bg-slate-100 p-4">
+                    <p class="uppercase tracking-widest text-xs text-slate-500">Contact</p>
+                    <p class="font-bold text-base text-primary mt-2">+91 0427-2383970</p>
+                    <p class="text-slate-600 text-sm">svpslm@gmail.com</p>
+                </div>
+                <div class="rounded-3xl bg-slate-100 p-4">
+                    <p class="uppercase tracking-widest text-xs text-slate-500">Admission</p>
+                    <p class="font-bold text-base text-primary mt-2">Open Now</p>
+                    <p class="text-slate-600 text-sm">Register today for new intake</p>
+                </div>
+            </div>
+            <nav class="space-y-2 text-base">
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Home</a>
+                <div class="space-y-1" data-mobile-dropdown>
+                    <button type="button" class="w-full flex items-center justify-between rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold text-base" data-mobile-dropdown-btn>
+                        About Us
+                        <span class="material-symbols-outlined text-base">expand_more</span>
+                    </button>
+                    <div class="hidden space-y-1 pl-4" data-mobile-dropdown-menu>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Overview</a>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Vision &amp; Mission</a>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Leadership</a>
+                    </div>
+                </div>
+                <div class="space-y-1" data-mobile-dropdown>
+                    <button type="button" class="w-full flex items-center justify-between rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold text-base" data-mobile-dropdown-btn>
+                        Management
+                        <span class="material-symbols-outlined text-base">expand_more</span>
+                    </button>
+                    <div class="hidden space-y-1 pl-4" data-mobile-dropdown-menu>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Board</a>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Administration</a>
+                    </div>
+                </div>
+                <div class="space-y-1" data-mobile-dropdown>
+                    <button type="button" class="w-full flex items-center justify-between rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold text-base" data-mobile-dropdown-btn>
+                        Academics
+                        <span class="material-symbols-outlined text-base">expand_more</span>
+                    </button>
+                    <div class="hidden space-y-1 pl-4" data-mobile-dropdown-menu>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Curriculum</a>
+                        <a href="#" class="block px-4 py-2 rounded-2xl text-base text-slate-600 hover:bg-slate-200">Faculty</a>
+                    </div>
+                </div>
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Beyond Academics</a>
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Admission</a>
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Campus</a>
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Community</a>
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Gallery</a>
+                <a href="#" class="block rounded-3xl px-4 py-3 bg-slate-100 text-slate-700 font-semibold">Contact Us</a>
+            </nav>
+        </div>
+    </div>
     <main>
         <!-- Hero Section -->
         <section class="relative h-[100vh] min-h-[600px] flex items-center overflow-hidden animate-gradient">
@@ -340,18 +622,20 @@
                             <h4 class="text-xs font-bold text-slate-300 tracking-widest uppercase">// EXAM FLASH \\</h4>
                         </div>
                         <h3 class="text-xl font-bold mb-6">EXAMINATION</h3>
-                        <ul class="space-y-4 flex-grow">
-                            <li class="flex items-start space-x-3 group cursor-pointer">
-                                <span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2"></span>
-                                <span class="text-sm group-hover:text-secondary transition-colors">CBSE Class X/XII Date
-                                    Sheet 2024-25 Released</span>
-                            </li>
-                            <li class="flex items-start space-x-3 group cursor-pointer">
-                                <span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2"></span>
-                                <span class="text-sm group-hover:text-secondary transition-colors">Internal Assessment
-                                    Guidelines Update</span>
-                            </li>
-                        </ul>
+                        <div class="notice-marquee overflow-hidden flex-grow">
+                            <ul class="space-y-4 animate-notice-marquee">
+                                <li class="flex items-start space-x-3 group cursor-pointer">
+                                    <span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2"></span>
+                                    <span class="text-sm group-hover:text-secondary transition-colors">CBSE Class X/XII Date
+                                        Sheet 2024-25 Released</span>
+                                </li>
+                                <li class="flex items-start space-x-3 group cursor-pointer">
+                                    <span class="w-1.5 h-1.5 bg-secondary rounded-full mt-2"></span>
+                                    <span class="text-sm group-hover:text-secondary transition-colors">Internal Assessment
+                                        Guidelines Update</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- News Flash -->
                     <div class="notice-card p-6 rounded-lg min-h-[300px] flex flex-col">
@@ -360,16 +644,18 @@
                             <h4 class="text-xs font-bold text-slate-300 tracking-widest uppercase">// NEWS FLASH \\</h4>
                         </div>
                         <h3 class="text-xl font-bold mb-6">NEWS &amp; UPDATES</h3>
-                        <ul class="space-y-4 text-sm flex-grow">
-                            <li
-                                class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2 flex justify-between items-center">
-                                <span>• Annual Day 2025 Registration</span>
-                                <span class="text-[10px] bg-secondary/20 px-2 py-0.5 rounded text-secondary">New</span>
-                            </li>
-                            <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• Investiture
-                                Ceremony Highlights</li>
-                            <li class="hover:text-secondary cursor-pointer">• Sports Day 2025 Preparation</li>
-                        </ul>
+                        <div class="notice-marquee overflow-hidden flex-grow">
+                            <ul class="space-y-4 text-sm animate-notice-marquee">
+                                <li
+                                    class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2 flex justify-between items-center">
+                                    <span>• Annual Day 2025 Registration</span>
+                                    <span class="text-[10px] bg-secondary/20 px-2 py-0.5 rounded text-secondary">New</span>
+                                </li>
+                                <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• Investiture
+                                    Ceremony Highlights</li>
+                                <li class="hover:text-secondary cursor-pointer">• Sports Day 2025 Preparation</li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- Circulars Flash -->
                     <div class="notice-card p-6 rounded-lg min-h-[300px] flex flex-col">
@@ -379,13 +665,15 @@
                             </h4>
                         </div>
                         <h3 class="text-xl font-bold mb-6">CIRCULARS</h3>
-                        <ul class="space-y-4 text-sm flex-grow">
-                            <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• School
-                                Reopening Details - Phase 2</li>
-                            <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• Fee Payment
-                                Schedule Quarter 4</li>
-                            <li class="hover:text-secondary cursor-pointer">• Winter Uniform Circular</li>
-                        </ul>
+                        <div class="notice-marquee overflow-hidden flex-grow">
+                            <ul class="space-y-4 text-sm animate-notice-marquee">
+                                <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• School
+                                    Reopening Details - Phase 2</li>
+                                <li class="hover:text-secondary cursor-pointer border-b border-white/10 pb-2">• Fee Payment
+                                    Schedule Quarter 4</li>
+                                <li class="hover:text-secondary cursor-pointer">• Winter Uniform Circular</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="lg:col-span-4 h-full">
@@ -407,6 +695,13 @@
         </section>
         <!-- Leadership Messages -->
         <section class="py-section-padding bg-[#F8F9FA] relative">
+            <div class="leadership-particles" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="max-w-[1280px] mx-auto px-8 relative z-10">
                 <div class="mb-12">
                     <span class="text-slate-400 font-bold tracking-widest uppercase text-sm block mb-2">// WORDS OF
@@ -462,7 +757,7 @@
             <div class="absolute top-1/2 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
         </section>
         <!-- Activity Icons Grid -->
-        <section class="py-20 bg-primary">
+        <section class="campus-life py-20 bg-primary">
             <div class="max-w-[1280px] mx-auto px-8 text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-2">Campus Life &amp; Facilities</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto"></div>
@@ -593,8 +888,8 @@
                 <span class="text-slate-400 font-bold tracking-widest uppercase text-xs block mb-2">// SOME MEMORABLE
                     MOMENTS \\</span>
                 <h2 class="font-h2 text-h2 text-primary mb-12">PHOTO GALLERY</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group">
+                <div id="gallery-scroll" class="grid grid-flow-col auto-cols-[minmax(360px,460px)] gap-6 mb-12 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group snap-start">
                         <img alt="Students in cultural celebration"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             src="assets/gallery01.jpeg" />
@@ -605,7 +900,7 @@
                                 Fest</span>
                         </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group">
+                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group snap-start">
                         <img alt="Student science fair showcase"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             src="assets/gallery02.jpeg" />
@@ -616,7 +911,7 @@
                                 Fair</span>
                         </div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group">
+                    <div class="rounded-xl overflow-hidden shadow-lg aspect-video relative group snap-start">
                         <img alt="Students in annual sports activities"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             src="assets/gallery03.jpeg" />
@@ -634,69 +929,171 @@
             </div>
         </section>
     </main>
-    <footer class="relative w-full pt-20 pb-10 bg-[#002538] text-white font-['Plus_Jakarta_Sans'] text-sm">
-        <div class="footer-curve">
-            <svg data-name="Layer 1" preserveaspectratio="none" viewbox="0 0 1200 120"
-                xmlns="http://www.w3.org/2000/svg" transform="translate(0,120) scale(1,-1)">
-                <path class="shape-fill"
-                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z">
-                </path>
+    <footer class="relative w-full pt-24 pb-10 bg-[#002538] text-white font-['Plus_Jakarta_Sans'] text-sm overflow-hidden">
+        <div class="absolute inset-x-0 -top-20">
+            <svg class="w-full h-24" preserveaspectratio="none" viewbox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#ffffff" d="M0,120 C250,0 950,0 1200,120 L1200,0 L0,0 Z"></path>
             </svg>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-[auto_1fr_1fr] gap-12 max-w-[1280px] mx-auto px-8 relative z-10">
-            <div class="flex items-start gap-6">
-                <div class="space-y-3">
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all">
-                        <span class="material-symbols-outlined text-white">facebook</span>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all">
-                        <span class="material-symbols-outlined text-white">instagram</span>
-                    </a>
-                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-all">
-                        <span class="material-symbols-outlined text-white">video_library</span>
-                    </a>
+        <div class="max-w-[1280px] mx-auto px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_auto] gap-10 items-start lg:items-center">
+                <div class="space-y-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-6 gap-4">
+                        <img src="assets/logo.png" alt="St. Vincent Pallotti logo" class="h-20 w-auto footer-logo" />
+                    </div>
+                   
+                    <p class="text-slate-300 max-w-xl leading-relaxed">A pioneering institution dedicated to crafting the future leaders of tomorrow through holistic and innovative education.</p>
+
                 </div>
                 <div>
-                    <img src="assets/logo.png" alt="St. Vincent Pallotti logo" class="h-20 object-contain mb-4" />
-                    <p class="text-slate-300 max-w-xs leading-relaxed">A pioneering institution dedicated to crafting the future leaders of tomorrow through holistic and innovative education.</p>
+                    <h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-[#7fba48] border-l-2 border-[#7fba48] pl-3">Quick Links</h5>
+                    <ul class="space-y-4 text-slate-300">
+                        <li><a class="hover:text-[#7fba48] transition-all" href="#">Upcoming Events</a></li>
+                        <li><a class="hover:text-[#7fba48] transition-all" href="#">Latest News</a></li>
+                        <li><a class="hover:text-[#7fba48] transition-all" href="#">Manager's Message</a></li>
+                        <li><a class="hover:text-[#7fba48] transition-all" href="#">Principal's Message</a></li>
+                        <li><a class="hover:text-[#7fba48] transition-all" href="#">TC Issued</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-[#7fba48] border-l-2 border-[#7fba48] pl-3">Address</h5>
+                    <ul class="space-y-6 text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-[#7fba48] mt-1">location_on</span>
+                            <span>St. Vincent Pallotti Matriculation Higher Secondary School, Main Road, Opp. Govt. Medical College, Salem. 636030</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-[#7fba48]">phone</span>
+                            <span>+91 0427-2383970</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-[#7fba48]">mail</span>
+                            <span>svpslm@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex items-center justify-center lg:justify-end">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-[#7fba48] bg-[#0d2a44] px-6 py-4 text-sm font-semibold uppercase tracking-widest text-[#7fba48] shadow-lg transition hover:bg-[#142f50]">
+                        Online Alumni Form
+                        <span class="material-symbols-outlined ml-2">open_in_new</span>
+                    </a>
                 </div>
             </div>
-            <div>
-                <h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-secondary border-l-2 border-secondary pl-3">Quick Links</h5>
-                <ul class="space-y-4 text-slate-300">
-                    <li><a class="hover:text-secondary transition-all" href="#">Upcoming Events</a></li>
-                    <li><a class="hover:text-secondary transition-all" href="#">Latest News</a></li>
-                    <li><a class="hover:text-secondary transition-all" href="#">Manager's Message</a></li>
-                    <li><a class="hover:text-secondary transition-all" href="#">Principal's Message</a></li>
-                    <li><a class="hover:text-secondary transition-all" href="#">TC Issued</a></li>
-                </ul>
+            <div class="mt-12 border-t border-white/10 pt-6 text-center text-slate-400 text-xs">
+                <p>Copyright © 2026 St. Vincent Pallotti Matriculation Higher Secondary School | <a class="text-[#7fba48] hover:text-white" href="#">Boscosoft</a></p>
             </div>
-            <div>
-                <h5 class="font-bold mb-6 text-sm uppercase tracking-widest text-secondary border-l-2 border-secondary pl-3">Address</h5>
-                <ul class="space-y-6 text-slate-300">
-                    <li class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-secondary">location_on</span>
-                        <span>St. Vincent Pallotti Matriculation Higher Secondary School, Main Road, Opp. Govt. Medical College, Salem. 636030</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-secondary">phone</span>
-                        <span>+91 0427-2383970</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-secondary">mail</span>
-                        <span>svpslm@gmail.com</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-[1280px] mx-auto px-8 mt-20 pt-8 border-t border-white/10 text-center text-slate-400 text-xs">
-            <p>Copyright © 2026 St. Vincent Pallotti Matriculation Higher Secondary School | <a class="text-secondary hover:text-white" href="#">Boscosoft</a></p>
         </div>
     </footer>
     <button
         class="fixed bottom-6 right-6 bg-secondary text-white p-3 rounded-full shadow-2xl hover:bg-opacity-90 hover:-translate-y-1 transition-all z-[100] flex items-center justify-center">
         <span class="material-symbols-outlined">expand_less</span>
     </button>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileCloseBtn = document.getElementById('mobile-menu-close-btn');
+        const desktopPopupBtn = document.getElementById('desktop-popup-btn');
+        const desktopMenuOverlay = document.getElementById('desktop-menu-overlay');
+        const desktopCloseBtn = document.getElementById('desktop-menu-close-btn');
+        const dropdownButtons = document.querySelectorAll('[data-dropdown-btn]');
+        const mobileDropdownButtons = document.querySelectorAll('[data-mobile-dropdown-btn]');
+
+        const closeAllDropdowns = () => {
+            document.querySelectorAll('[data-dropdown-menu]').forEach(menu => menu.classList.add('hidden'));
+        };
+
+        mobileMenuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        });
+
+        mobileCloseBtn?.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        desktopPopupBtn?.addEventListener('click', () => {
+            desktopMenuOverlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        });
+
+        desktopCloseBtn?.addEventListener('click', () => {
+            desktopMenuOverlay.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        desktopMenuOverlay?.addEventListener('click', (event) => {
+            if (event.target === desktopMenuOverlay) {
+                desktopMenuOverlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+
+        mobileMenu?.addEventListener('click', (event) => {
+            if (event.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const menu = button.nextElementSibling;
+                if (!menu) return;
+                const isHidden = menu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                }
+            });
+        });
+
+        mobileDropdownButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const menu = button.closest('[data-mobile-dropdown]')?.querySelector('[data-mobile-dropdown-menu]');
+                if (!menu) return;
+                menu.classList.toggle('hidden');
+            });
+        });
+
+        const galleryScroll = document.getElementById('gallery-scroll');
+        if (galleryScroll) {
+            let galleryPosition = 0;
+            const step = 0.4;
+            let paused = false;
+
+            const updateScroll = () => {
+                const maxScroll = galleryScroll.scrollWidth - galleryScroll.clientWidth;
+                if (maxScroll > 0 && !paused) {
+                    galleryPosition += step;
+                    if (galleryPosition >= maxScroll) {
+                        galleryPosition = 0;
+                    }
+                    galleryScroll.scrollLeft = galleryPosition;
+                }
+            };
+
+            galleryScroll.addEventListener('mouseenter', () => {
+                paused = true;
+            });
+            galleryScroll.addEventListener('mouseleave', () => {
+                paused = false;
+            });
+
+            const animateGallery = () => {
+                updateScroll();
+                requestAnimationFrame(animateGallery);
+            };
+            requestAnimationFrame(animateGallery);
+        }
+
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('[data-dropdown]')) {
+                closeAllDropdowns();
+            }
+        });
+    </script>
 </body>
 
 </html>
